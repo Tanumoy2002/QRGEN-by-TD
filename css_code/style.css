@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar{
+    background: #000;
+}
+
+.navbar span{
+    color: #4a93c8;
+    font-size: 1rem;
+}
+
+#preloader {
+  background: #000 url(../images/loader.gif) no-repeat center;
+  background-size: 25%;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+}
+
+.main {
+  background: #fff;
+  height: 92.3vh;
+  width: 100%;
+  margin-top: 3%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.main h1{
+    text-align: center;
+    letter-spacing: .2rem;
+}
+
+.box {
+  display: flex grid;
+  grid-template-rows: auto auto;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  max-width: 600px;
+  padding: 40px 15px 30px 30px;
+  background: #fff;
+  border-radius: 1rem;
+  position: relative;
+  border: 4px dotted crimson;
+}
+
+.main p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.form {
+  display: grid flex;
+  grid-template-rows: auto auto;
+}
+
+.form form input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-bottom: 1px solid #999;
+  color: #333;
+  font-size: 17px;
+  text-align: center;
+}
+.input_Section input:focus-visible{
+  border-bottom: 2px solid rgb(214, 107, 107);
+  border-radius: .5rem;
+}
+.btn1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form form button {
+  margin-top: 20px;
+  padding: 5px 25px;
+  border-radius: 2rem;
+}
+.QrFetch {
+  margin-top: 10px;
+  border: 2px solid rgb(67, 0, 0);
+  padding: 2% 0;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 1px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease-in, height 0.5s ease-in-out;
+}
+.QrFetch.show {
+  visibility: visible;
+  height: 100%;
+  opacity: 1;
+  transition: opacity 0.5s ease-in, height 0.5s ease;
+}
+
+.QrFetch img {
+  height: 150px;
+}
+
+#createQr {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: black;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  margin-top: 40px;
+  letter-spacing: 4px;
+}
+
+#createQr:hover {
+  background: #fd30bc;
+  color: #111;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #fd30bc, 0 0 25px #fd30bc, 0 0 50px #fd30bc,
+    0 0 100px #fd30bc;
+}
+
+#createQr span {
+  position: absolute;
+  display: block;
+}
+
+.btn2 {
+    margin-top: 3%;
+    margin-bottom: 1%;
+    font-family: "Poppins", sans-serif;
+    
+  }
+
+  .btn2 a{
+    padding: 10px 20px;
+    text-decoration: none;
+    border: 2px solid black;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: black;
+    transition: 0.5s;
+    display: inline-block;
+    font-weight: 600;
+  }
+
+  .btn2:hover{
+    background: rgb(35, 192, 254);
+    box-shadow: 0 0 10px rgb(35, 192, 254), 0 0 20px rgb(35, 192, 254), 0 0 40px rgb(35, 192, 254), 0 0 80px rgb(35, 192, 254),
+      0 0 160px rgb(35, 192, 254);
+  }
+
+
+

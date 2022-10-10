@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QrGen</title>
+
+    <!-- ........link title icon........ -->
+    <link rel="shortcut icon" href="../images/qrgen.png" type="image/x-icon" />
+
+    <!-- .........link css.......... -->
+    <link rel="stylesheet" href="../css_code/style.css" />
+
+    <!-- ...........link bootstrap.............. -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- .........preloader......... -->
+    <div id="preloader"></div>
+
+    <!-- ........main part......... -->
+    <nav class="navbar navbar-dark">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1 mx-2"
+          ><span style="color: yellow">QR_Genarator</span>
+          <span style="color: #fff"> by</span> <b> Tanumoy</b></span
+        >
+      </div>
+    </nav>
+    <div class="main">
+      <div class="box">
+        <div class="genarator">
+          <section>
+            <h1>QR Code Genarator</h1>
+            <div class="text-muted">
+              <p>Enter your text for creating Qr. . .</p>
+            </div>
+          </section>
+        </div>
+        <div class="form">
+          <form id="Qrform">
+            <div class="input_Section">
+              <input
+                type="text"
+                name="Qrtext"
+                required
+                placeholder="Enter your text "
+                autocomplete="off"
+                id="QrInput"
+              />
+            </div>
+            <div class="btn1">
+              <button id="createQr" type="submit">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span><b>CREATE QR</b>
+              </button>
+            </div>
+          </form>
+          <section class="QrFetch" id="QrFetch">
+            <img src="../images/qrdemo.png" alt="Qr Code" id="QrImage" />
+          </section>
+        </div>
+      </div>
+      <div class="btn2">
+        <div class="container">
+          <a href="https://tanumoy2002.github.io/Portfolio/html_code/"
+            ><span><b>touch me</b></span></a
+          >
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- ..........................javascript code.............................. -->
+
+    <script>
+      // pre-loader
+      const loader = document.getElementById("preloader");
+      window.addEventListener("load", function () {
+        loader.style.display = "none";
+      });
+
+      // main-part
+      const Qrform = document.getElementById("Qrform");
+      const QrFetch = document.getElementById("QrFetch");
+      const QrImage = document.getElementById("QrImage");
+      const QrInput = document.getElementById("QrInput");
+      const createQr = document.getElementById("createQr");
+      const renqr = (url) => {
+        if (!url) return;
+        createQr.innerHTML = `<span></span>
+    <span></span>
+    <span></span>
+    <span></span><b>Fetching text...</b>`;
+        QrImage.src = url;
+        QrFetch.classList.add("show");
+
+        QrImage.addEventListener("load", (e) => {
+          createQr.innerHTML = `<span></span>
+    <span></span>
+    <span></span>
+    <span></span><b>QR Code</b>`;
+        });
+      };
+      Qrform.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const fdata = new FormData(Qrform);
+        const txt = fdata.get("Qrtext");
+        console.log(txt);
+        const qrurl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${txt}`;
+        renqr(qrurl);
+      });
+      QrInput.addEventListener("keyup", (e) => {
+        e.preventDefault();
+        if (!QrInput.value.trim()) {
+          QrFetch.classList.remove("show");
+          createQr.innerHTML = `<span></span>
+    <span></span>
+    <span></span>
+    <span></span><b>CREATE QR</b>`;
+        }
+      });
+    </script>
+  </body>
+</html>
